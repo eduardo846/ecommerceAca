@@ -6,10 +6,17 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import ProductDetail from "./pages/ProductDetail";
 import Purchases from "./pages/Purchases";
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from "react";
+import { getProductsThunk } from "./store/slices/products.slice";
 
 function App() {
   const isLoading = useSelector(state=>state.isLoading)
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(getProductsThunk());
+  }, []);
   return (
     <HashRouter>
       <MyNavbar />

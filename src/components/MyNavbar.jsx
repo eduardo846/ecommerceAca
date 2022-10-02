@@ -11,9 +11,13 @@ const MyNavbar = () => {
             E-commerce
           </Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link to="/login" as={Link}>Login</Nav.Link>
-            <Nav.Link to="/Purchases" as={Link}>Favoritos</Nav.Link>
-            <Nav.Link >Favoritos(sidebar)</Nav.Link>
+            <Nav.Link to="/login" as={Link}>
+              Login
+            </Nav.Link>
+            <Nav.Link to="/Purchases" as={Link}>
+              Favorites
+            </Nav.Link>
+            <Nav.Link>Favoritos(sidebar)</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
