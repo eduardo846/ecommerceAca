@@ -1,6 +1,13 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Button, Card, Col, ListGroup, ListGroupItem, Row } from "react-bootstrap";
+import {
+  Button,
+  Card,
+  Col,
+  ListGroup,
+  ListGroupItem,
+  Row,
+} from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import { useDispatch, useSelector } from "react-redux";
@@ -49,7 +56,7 @@ const Home = () => {
             <ListGroup.Item
               key={category.id}
               onClick={() => filterCategory(category.id)}
-              style={{cursor: "pointer"}}
+              style={{ cursor: "pointer" }}
             >
               {category.name}
             </ListGroup.Item>
@@ -68,21 +75,21 @@ const Home = () => {
           </Button>
         </InputGroup>
 
-        <Row xs={1} md={2} className="g-4">
-        {productsFiltered.map((product) => (
-        <Col key={product.id}>
-          <Card onClick={() => navigate(`/products/${product.id}`)} style={{height: "100%"}}>
-            <Card.Img variant="top" src={product.productImgs} />
-            <Card.Body>
-              <Card.Title>{product.title}</Card.Title>
-              <Card.Text>
-                {product.description}
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </Col>
-      ))}
-    </Row>
+        <Row xs={1} md={2} xl={3} className="g-4">
+          {productsFiltered.map((product) => (
+            <Col key={product.id}>
+              <Card
+                onClick={() => navigate(`/products/${product.id}`)}
+              >
+                <Card.Img variant="top" src={product.productImgs} style={{height:"350px", objectFit: "contain"}}/>
+                <Card.Body>
+                  <Card.Title>{product.title}</Card.Title>
+                  <Card.Text>Price: {product.price}</Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+          ))}
+        </Row>
       </Col>
     </Row>
   );

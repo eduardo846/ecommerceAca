@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getProductsThunk } from "./store/slices/products.slice";
 import { Container } from "react-bootstrap";
+import ProtectedRoutes from "./components/ProtectedRoutes";
 
 function App() {
   const isLoading = useSelector((state) => state.isLoading);
@@ -27,7 +28,9 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/products/:id" element={<ProductDetail />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/purchases" element={<Purchases />} />
+          <Route element={<ProtectedRoutes/>}>
+            <Route path="/purchases" element={<Purchases />} />
+          </Route>
         </Routes>
       </Container>
     </HashRouter>

@@ -1,8 +1,13 @@
 import React from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 
 const MyNavbar = () => {
+  const navigate = useNavigate()
+  const logout =()=>{
+    localStorage.setItem("token","")
+    navigate("/login")
+  }
   return (
     <Navbar bg="primary" expand="lg" variant="dark">
       <Container>
@@ -17,6 +22,7 @@ const MyNavbar = () => {
               Favorites
             </Nav.Link>
             <Nav.Link>Favoritos(sidebar)</Nav.Link>
+            <Nav.Link onClick={logout}>Logout</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

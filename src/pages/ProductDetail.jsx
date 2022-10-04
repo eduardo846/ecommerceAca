@@ -16,20 +16,22 @@ const ProductDetail = () => {
   return (
     <Row>
       <Col>
-        <h1>{producsDetails?.title}</h1>
-        <p>{producsDetails?.description}</p>
-        <img
+      <img
           className="img-fluid"
           src={producsDetails?.productImgs}
           alt=""
-          width={"200px"}
+          style={{width:"100%", objectFit: "contain"}}
         />
+      </Col>
+      <Col>
+        <h1>{producsDetails?.title}</h1>
+        <p>{producsDetails?.description}</p>
       </Col>
       <Col lg={3}>
         <ListGroup variant="flush">
           {relatedProducts.map((products) => (
             <ListGroup.Item key={products.id}>
-                <img src={products.productImgs} alt="" className="img-fluid" />
+                <img src={products.productImgs} alt="" className="img-fluid" style={{height:"10%", objectFit: "contain"}}/>
               <Link to={`/products/${products.id}`}>{products.title}</Link>
             </ListGroup.Item>
           ))}
