@@ -78,10 +78,12 @@ const Home = () => {
         <Row xs={1} md={2} xl={3} className="g-4">
           {productsFiltered.map((product) => (
             <Col key={product.id}>
-              <Card
-                onClick={() => navigate(`/products/${product.id}`)}
-              >
-                <Card.Img variant="top" src={product.productImgs} style={{height:"350px", objectFit: "contain"}}/>
+              <Card onClick={() => navigate(`/products/${product.id}`)}>
+                <Card.Img
+                  variant="top"
+                  src={product.productImgs}
+                  style={{ height: "350px", objectFit: "contain" }}
+                />
                 <Card.Body>
                   <Card.Title>{product.title}</Card.Title>
                   <Card.Text>Price: {product.price}</Card.Text>
