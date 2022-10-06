@@ -20,6 +20,13 @@ export const getFavoritesThunk = () => (dispatch) => {
         .finally(() => dispatch(setIsLoading(false)));
 }
 
+export const addFavoriteThunk = (favorite) => (dispatch) => {
+    dispatch(setIsLoading(true));
+    return axios.post('https://ecommerce-api-react.herokuapp.com/api/v1/cart', favorite, getConfig())
+        .then(() => dispatch(getFavoritesThunk()))
+        .finally(() => dispatch(setIsLoading(false)));
+}
+
 export const {setFavorites} = favoritesSlice.actions;
 
 export default favoritesSlice.reducer;
